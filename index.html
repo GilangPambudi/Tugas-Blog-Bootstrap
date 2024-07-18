@@ -11,6 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="smartphone.png" />
     <link href="styles.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- end -->
+
 </head>
 
 <body>
@@ -20,22 +25,97 @@
                 <span class="fs-2" style="font-weight: bold;">All About Phone</span>
             </a>
             <ul class="nav">
-                <li class="nav-item"><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">Search</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 link-secondary" id="home-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 link-dark" id="search-button">Search</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 link-dark">About</a></li>
+                <div id="search-box">
+                    <input type="text" placeholder="Search...">
+                </div>
             </ul>
+            <script>
+                $("#search-box").hide();
+
+                $(document).ready(function () {
+                    $("#search-button").click(function () {
+                        $("#search-box").slideToggle("fast");
+                        $("#search-button").toggleClass("link-dark link-secondary");
+                        $("#home-link").toggleClass("link-dark link-secondary");
+                    });
+                });
+
+                $(document).ready(function () {
+                    // Inisialisasi carousel menggunakan Bootstrap
+                    $('#article-carousel').carousel();
+
+                    // Event handler untuk navigasi carousel
+                    $('.carousel-control-prev').click(function () {
+                        $('#article-carousel').carousel('prev');
+                    });
+
+                    $('.carousel-control-next').click(function () {
+                        $('#article-carousel').carousel('next');
+                    });
+                });
+
+                $(document).ready(function () {
+                    var maxHeight = 0;
+
+                    // Find the tallest carousel item
+                    $('.carousel-item').each(function () {
+                        var itemHeight = $(this).height();
+                        if (itemHeight > maxHeight) {
+                            maxHeight = itemHeight;
+                        }
+                    });
+
+                    // Set all carousel items to the height of the tallest item
+                    $('.carousel-item').height(maxHeight);
+                });
+            </script>
         </div>
     </header>
 
     <main class="container mt-4">
 
-        <div class="p-4 p-md-5 mb-4 text-white bg-primary rounded bg-image">
-            <div class="col-md-6 px-0">
-                <h1 class="display-3 fst-italic"><strong>Samsung Galaxy S24 Ultra</strong></h1>
-                <p class="lead my-3">Galaxy AI is here!</p>
-                <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+        <div id="article-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner mb-4">
+                <div class="carousel-item active">
+                    <div class="p-4 p-md-5 mb-4 text-white bg-primary rounded bg-image-1">
+                        <div class="col-md-6 px-0">
+                            <h1 class="display-3 fst-italic"><strong>Samsung Galaxy S24 Ultra</strong></h1>
+                            <p class="lead my-3">Galaxy AI is here!</p>
+                            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="p-4 p-md-5 mb-4 text-white bg-primary rounded bg-image-2">
+                        <div class="col-md-6 px-0">
+                            <h1 class="display-3 fst-italic"><strong>Samsung Galaxy Z Fold 6</strong></h1>
+                            <p class="lead my-3">The Best Foldable AI Smartphone?</p>
+                            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="p-4 p-md-5 mb-4 text-white bg-primary rounded bg-image-3">
+                        <div class="col-md-6 px-0">
+                            <h1 class="display-3 fst-italic"><strong>Xiaomi 14 Ultra</strong></h1>
+                            <p class="lead my-3">Co-Engineered with Leica</p>
+                            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#article-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#article-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
         <div class="row mb-2">

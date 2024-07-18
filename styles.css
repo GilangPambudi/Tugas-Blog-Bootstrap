@@ -1,3 +1,35 @@
-.bg-image {
+
+.carousel-item .bg-primary {
+    height: 100%; /* Ensure the background covers the entire item */
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+
+.bg-image-1 {
     background-image: url('https://fdn.gsmarena.com/imgroot/reviews/24/samsung-galaxy-s24-ultra/lifestyle/-1024w2/gsmarena_028.jpg');
+    background-size: cover;
+}
+
+.bg-image-2 {
+    background-image: url('https://soyacincau.com/wp-content/uploads/2024/07/240710-samsung-galaxy-z-fold-6-04-1140x570.jpg');
+    background-size: cover;
+
+}
+
+.bg-image-3 {
+    background-image: url('https://www.digitaltrends.com/wp-content/uploads/2024/03/xiaomi-14-ultra-back-hand.jpg');
+    background-size: cover;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+#search-box {
+    margin-top: 5px;
 }
